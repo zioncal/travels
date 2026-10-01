@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הטיולים שלי</title>
+<meta name="description" content="יומן הטיולים שלי בארץ ובעולם – מפה, סיפורים, תמונות וסרטונים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-head">
+  <span class="blaze" aria-hidden="true"></span>
+  <h1 class="site-title"><a href="./">הטיולים שלי</a></h1>
+  <span class="count" id="count"></span>
+</header>
+
+<div class="map-wrap">
+  <div id="world-map" role="region" aria-label="מפת הטיולים"></div>
+  <div class="filters" role="group" aria-label="סינון טיולים">
+    <button type="button" data-f="all" aria-pressed="true">הכול</button>
+    <button type="button" data-f="israel" aria-pressed="false">בארץ</button>
+    <button type="button" data-f="world" aria-pressed="false">בעולם</button>
+  </div>
+</div>
+
+<main id="list"></main>
+
+<footer>כל התמונות והסרטונים באתר צולמו על ידי. אין להעתיק ללא רשות.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data/trips.js"></script>
+<script src="assets/app.js"></script>
+<script>Travels.home();</script>
+</body>
+</html>

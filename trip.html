@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>טיול</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-head">
+  <span class="blaze" aria-hidden="true"></span>
+  <p class="site-title"><a href="./">הטיולים שלי</a></p>
+</header>
+
+<div id="trip"></div>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="תצוגת תמונה">
+  <button class="close" type="button" aria-label="סגירה">×</button>
+  <button class="prev" type="button" aria-label="התמונה הקודמת">›</button>
+  <img alt="">
+  <div class="cap"></div>
+  <button class="next" type="button" aria-label="התמונה הבאה">‹</button>
+</div>
+
+<footer>כל התמונות והסרטונים באתר צולמו על ידי. אין להעתיק ללא רשות.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data/trips.js"></script>
+<script src="assets/app.js"></script>
+<script>Travels.trip();</script>
+</body>
+</html>

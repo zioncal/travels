@@ -1,0 +1,6 @@
+# originals (full size, with GPS) never go online
+_incoming/
+*.HEIC
+*.heic
+Thumbs.db
+.DS_Store
