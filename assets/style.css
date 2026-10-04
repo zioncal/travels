@@ -1,0 +1,183 @@
+/* ---------- tokens ---------- */
+:root {
+  --paper: #F2F4F1;
+  --surface: #FFFFFF;
+  --ink: #16253A;
+  --muted: #5B6676;
+  --line: #D5DAD3;
+  --blue: #1F5FA8;
+  --orange: #E2702A;
+  --focus: #1F5FA8;
+  --serif: "Frank Ruhl Libre", "David", serif;
+  --sans: "Assistant", "Arial Hebrew", Arial, sans-serif;
+  --measure: 62ch;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* the trail-blaze motif: orange / white / blue */
+.blaze {
+  display: inline-block;
+  width: 28px; height: 18px;
+  background: linear-gradient(var(--orange) 0 33.3%, #fff 33.3% 66.6%, var(--blue) 66.6%);
+  border: 1px solid rgba(22,37,58,.25);
+  border-radius: 2px;
+  flex: none;
+}
+
+/* ---------- header ---------- */
+.site-head {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px clamp(16px, 4vw, 40px);
+}
+.site-head a { color: inherit; text-decoration: none; }
+.site-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.1;
+  margin: 0;
+}
+.site-head .count { margin-inline-start: auto; color: var(--muted); font-size: 16px; }
+
+/* ---------- home map ---------- */
+.map-wrap { position: relative; }
+#world-map {
+  height: min(62vh, 560px);
+  min-height: 340px;
+  border-block: 1px solid var(--line);
+  background: #dfe5e8;
+}
+.filters {
+  position: absolute; z-index: 500;
+  top: 12px; inset-inline-start: 12px;
+  display: flex; gap: 6px;
+  background: rgba(255,255,255,.92);
+  padding: 5px; border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(22,37,58,.18);
+}
+.filters button {
+  font: inherit; font-size: 16px;
+  border: 0; background: transparent; color: var(--ink);
+  padding: 4px 12px; border-radius: 5px; cursor: pointer;
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
+/* map pins */
+.pin {
+  width: 22px; height: 15px;
+  background: linear-gradient(var(--orange) 0 33.3%, #fff 33.3% 66.6%, var(--blue) 66.6%);
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.35);
+}
+.leaflet-popup-content { font-family: var(--sans); font-size: 16px; direction: rtl; text-align: right; margin: 12px 14px; }
+.leaflet-popup-content a { font-weight: 700; }
+.popup-img { width: 200px; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 6px; }
+
+/* ---------- trip list ---------- */
+main { padding: 8px clamp(16px, 4vw, 40px) 64px; }
+.year {
+  font-family: var(--serif);
+  font-size: 30px; font-weight: 700;
+  margin: 36px 0 8px;
+  color: var(--ink);
+}
+.trip-list { list-style: none; margin: 0; padding: 0; }
+.trip-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 18px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  color: inherit; text-decoration: none;
+}
+.trip-row:hover h3 { color: var(--blue); }
+.trip-row .thumb {
+  width: 160px; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: 4px; background: #dde3df;
+}
+.trip-row .thumb.empty { display: flex; align-items: center; justify-content: center; }
+.trip-row h3 { font-family: var(--serif); font-size: 24px; margin: 0 0 2px; line-height: 1.25; }
+.trip-meta { color: var(--muted); font-size: 16px; }
+.trip-row p { margin: 6px 0 0; max-width: var(--measure); }
+.empty-note { color: var(--muted); padding: 24px 0; }
+
+/* ---------- trip page ---------- */
+.trip-head { padding: 28px clamp(16px, 4vw, 40px) 8px; max-width: 1100px; margin: 0 auto; }
+.back { font-size: 16px; text-decoration: none; }
+.trip-head h1 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 6vw, 60px);
+  line-height: 1.05;
+  margin: 10px 0 8px;
+}
+.trip-head .trip-meta { display: flex; align-items: center; gap: 10px; font-size: 18px; }
+.trip-body { max-width: 1100px; margin: 0 auto; }
+.cover { width: 100%; max-height: 70vh; object-fit: cover; border-radius: 6px; margin: 16px 0 8px; }
+.story { max-width: var(--measure); font-size: 19px; line-height: 1.75; }
+.story p { margin: 0 0 1em; }
+h2.section {
+  font-family: var(--serif);
+  font-size: 28px;
+  margin: 44px 0 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+#trip-map { height: 360px; border-radius: 6px; border: 1px solid var(--line); }
+
+.gallery { columns: 3 260px; column-gap: 10px; }
+.gallery button {
+  display: block; width: 100%; padding: 0; margin: 0 0 10px;
+  border: 0; background: none; cursor: zoom-in; break-inside: avoid;
+}
+.gallery img { width: 100%; height: auto; border-radius: 4px; }
+
+.videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+.video figure { margin: 0; }
+.video iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 6px; background: #000; }
+.video figcaption { color: var(--muted); font-size: 16px; margin-top: 4px; }
+
+.links { padding-inline-start: 1.2em; }
+
+/* ---------- lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(10, 16, 26, .94);
+  display: none; align-items: center; justify-content: center;
+  flex-direction: column;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 94vw; max-height: 84vh; object-fit: contain; }
+.lightbox .cap { color: #e8ecef; margin-top: 10px; font-size: 17px; min-height: 1.6em; text-align: center; padding: 0 16px; }
+.lightbox button {
+  position: absolute; background: rgba(255,255,255,.12); color: #fff;
+  border: 0; font-size: 28px; width: 52px; height: 52px; border-radius: 50%; cursor: pointer;
+}
+.lightbox .close { top: 14px; inset-inline-end: 14px; }
+.lightbox .prev { inset-inline-start: 14px; top: 50%; transform: translateY(-50%); }
+.lightbox .next { inset-inline-end: 14px; top: 50%; transform: translateY(-50%); }
+
+footer { color: var(--muted); font-size: 15px; padding: 24px clamp(16px, 4vw, 40px); border-top: 1px solid var(--line); }
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .trip-row { grid-template-columns: 96px 1fr; gap: 12px; }
+  .trip-row .thumb { width: 96px; }
+  .trip-row h3 { font-size: 20px; }
+  .trip-row p { display: none; }
+  .videos { grid-template-columns: 1fr; }
+  .site-head .count { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
