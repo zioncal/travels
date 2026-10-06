@@ -26,7 +26,7 @@ window.TRIPS = [
     lat: -4.6227, lng: 38.2713,
     summary: "טרק של חמישה ימים בהרי אוסמברה, ספארי בשמורת מקומזי, חוף האוקיינוס ההודי וזנזיבר – ואחריו שבוע עצמאי בזנזיבר.",
     story: [],
-    cover: "IMG_4820.jpg",
+    cover: "IMG_4833.jpg",
     photos: [
       { file: "IMG_4688.jpg", caption: "יום 1, 19/8" },
       { file: "IMG_4691.jpg", caption: "יום 1, 19/8" },
