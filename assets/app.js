@@ -160,7 +160,10 @@
     }
     if (links.length) {
       h += '<h2 class="section"><span class="blaze" aria-hidden="true"></span>קישורים</h2><ul class="links">' +
-        links.map(function (l) { return '<li><a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label) + "</a></li>"; }).join("") + "</ul>";
+        links.map(function (l) {
+          var dl = /\.gpx$/i.test(l.url) ? ' download' : ' target="_blank" rel="noopener"';
+          return '<li><a href="' + esc(l.url) + '"' + dl + '>' + esc(l.label) + "</a></li>";
+        }).join("") + "</ul>";
     }
     h += "</main>";
     root.innerHTML = h;
