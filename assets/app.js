@@ -136,7 +136,9 @@
       "<h1>" + esc(t.title) + "</h1>" +
       (meta ? '<div class="trip-meta">' + meta + "</div>" : "") + "</div>" +
       '<main class="trip-body">';
-    if (cf) h += '<img class="cover" src="' + photoUrl(t, cf) + '" alt="' + esc(t.title) + '">';
+    // coverFocus: which part of the cover photo to keep when it is cropped ("50% 70%" = center, lower part)
+    var focus = /^[0-9]{1,3}% [0-9]{1,3}%$/.test(t.coverFocus || "") ? ' style="object-position:' + t.coverFocus + '"' : "";
+    if (cf) h += '<img class="cover" src="' + photoUrl(t, cf) + '" alt="' + esc(t.title) + '"' + focus + '>';
     if (t.story && t.story.length) {
       h += '<div class="story">' + t.story.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + "</div>";
     } else if (t.summary) {
